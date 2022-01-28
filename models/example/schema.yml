@@ -16,17 +16,12 @@ models:
             description: "The primary key for this table"
             tests:
               - unique
-              - not_null
-              - relationships:
-                  to: ref('my_first_dbt_model')
-                  field: id
                   
     - name: demo_model
       description: "Total purchase for each customer in snowflake"
       columns:
         - name: c_custkey
           tests:
-            - unique
             - not_null
 
     - name: cumulative_orders_by_date
@@ -41,9 +36,7 @@ models:
       description: "Playing with test using customer data from snowflake"
       columns:
         - name: c_custkey
-          tests:
-            - unique
-            - not_null
+
         - name: mktsegment
           accepted_values:
             values: ['BUILDING', 'AUTOMOBILE', 'MACHINERY', 'HOUSEHOLD', 'FURNITURE']
